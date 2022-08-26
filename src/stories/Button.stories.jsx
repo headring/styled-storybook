@@ -1,40 +1,18 @@
-import React from 'react';
+// 컴포넌트를 불러옵니다.
+import Button from "./Button";
 
-import { Button } from './Button';
-
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
-  component: Button,
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-  argTypes: {
-    backgroundColor: { control: 'color' },
-  },
+    title: "Practice/Button",
+    component: Button,
+
+		// 이번에 작성한 전달인자의 타입은 Storybook을 보고 직접 확인해보세요.
+    argTypes: {
+        color: { control: 'color'},
+        size: { control: { type:'radio', options : ['big', 'small'] }},
+        text: { control: 'text'}
+    }
 };
 
-// More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
-const Template = (args) => <Button {...args} />;
-
-export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-  primary: true,
-  label: 'Button',
-};
-
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Button',
-};
-
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'Button',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
-};
+export const StorybookButton = (args) => (
+    <Button {...args}></Button>
+)
